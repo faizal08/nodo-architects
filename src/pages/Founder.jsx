@@ -44,7 +44,7 @@ function Hero() {
           <motion.p className="eyebrow mb-8 text-sand" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}>
             Founder & Principal Architect
           </motion.p>
-          <SplitText as="h1" immediate delay={0.6} text={['Meet', 'the Founder']} className="display text-7xl md:text-[9rem]" />
+          <SplitText as="h1" immediate delay={0.6} text={['Meet', 'the Founder']} className="display text-7xl md:text-8xl lg:text-[9rem]" />
           <motion.p
             className="mt-8 font-serif text-3xl italic"
             initial={{ opacity: 0, y: 20 }}
