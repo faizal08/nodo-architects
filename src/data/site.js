@@ -6,7 +6,7 @@ export const studio = {
   established: 2026,
   founder: 'Ar. Shana Rahmath',
   founderShort: 'Shana',
-  email: 'architectshanarahmath@gmail.com',
+  email: 'nodoarchitects.studio@gmail.com',
   phone: '+91 9061 997 482',
   phoneHref: '+919061997482',
   whatsapp: 'https://wa.me/919061997482',
