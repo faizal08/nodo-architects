@@ -108,7 +108,7 @@ export default function Projects() {
         </div>
       </section>
 
-      <CTA image="/images/sameer-residence.webp" />
+      <CTA image="/images/maqbool-residence.webp" />
     </Page>
   )
 }

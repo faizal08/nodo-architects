@@ -120,11 +120,11 @@ export default function Founder() {
             <SplitText text={['Selected work', 'by Shana']} className="display text-5xl md:text-7xl" />
             <Reveal><Link to="/projects" className="eyebrow link-line pb-1">All projects →</Link></Reveal>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-x-6 gap-y-14 md:grid-cols-2">
             {projects.map((p, i) => (
-              <Reveal key={p.slug} delay={(i % 3) * 0.1} className={i === 0 ? 'md:col-span-2 md:row-span-2' : ''}>
+              <Reveal key={p.slug} delay={(i % 2) * 0.12} className={i % 2 ? 'md:mt-24' : ''}>
                 <Link to={`/projects/${p.slug}`} data-cursor="View" className="group block">
-                  <div className={`overflow-hidden ${i === 0 ? 'aspect-[4/5] md:aspect-auto md:h-[calc(100%-4rem)]' : 'aspect-[4/3]'}`}>
+                  <div className="aspect-[4/3] overflow-hidden">
                     <img src={p.thumb} alt={p.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[var(--ease-expo)] group-hover:scale-110" />
                   </div>
                   <div className="mt-4 flex justify-between">

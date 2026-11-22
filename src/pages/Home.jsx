@@ -119,8 +119,8 @@ function Manifesto() {
 
 function Numbers() {
   const stats = [
-    { n: 5, s: '', l: 'Projects showcased' },
-    { n: 4554, s: '', l: 'Sq ft of homes completed' },
+    { n: projects.length, s: '', l: 'Projects showcased' },
+    { n: 2300, s: '', l: 'Sq ft residence completed' },
     { n: 19, s: '', l: 'Acre campus master plan' },
     { n: 2026, s: '', l: 'Studio established', plain: true },
   ]
@@ -279,32 +279,31 @@ function WorkIndex() {
 }
 
 function Residences() {
-  const homes = projects.filter((p) => p.category === 'Residential')
+  const h = projects.find((p) => p.slug === 'maqbool-residence')
+  if (!h) return null
   return (
     <section className="bg-bone py-28 md:py-40">
       <div className="container-x">
         <div className="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <SplitText text="Homes, grounded in nature." className="display max-w-3xl text-5xl md:text-7xl" />
-          <Reveal><p className="eyebrow text-clay">Residential · Kerala</p></Reveal>
+          <SplitText text="A home, grounded in nature." className="display max-w-3xl text-5xl md:text-7xl" />
+          <Reveal><p className="eyebrow text-clay">Residential · {h.location}</p></Reveal>
         </div>
-        <div className="grid gap-10 md:grid-cols-12">
-          {homes.map((h, i) => (
-            <Link
-              key={h.slug}
-              to={`/projects/${h.slug}`}
-              data-cursor="View"
-              className={`group block ${i === 0 ? 'md:col-span-7' : 'md:col-span-5 md:mt-40'}`}
-            >
-              <ParallaxImage src={h.cover} alt={h.title} className="aspect-[4/3]" reveal={i ? 'right' : 'left'} />
-              <div className="mt-6 flex items-baseline justify-between border-b border-ink/15 pb-4">
-                <h3 className="display text-4xl transition-all duration-500 group-hover:italic">{h.title}</h3>
-                <span className="eyebrow text-clay">{h.year}</span>
-              </div>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-ink/65">{h.lede}</p>
-              <p className="eyebrow mt-3 text-clay">{h.specs.find((s) => s[0] === 'Area')?.[1]} · {h.location}</p>
-            </Link>
-          ))}
-        </div>
+        <Link to={`/projects/${h.slug}`} data-cursor="View" className="group grid items-end gap-10 md:grid-cols-12">
+          <ParallaxImage src={h.cover} alt={h.title} className="aspect-[16/10] md:col-span-8" reveal="left" />
+          <div className="md:col-span-4">
+            <h3 className="display text-5xl transition-all duration-500 group-hover:italic group-hover:text-burgundy">{h.title}</h3>
+            <p className="mt-6 leading-relaxed text-ink/65">{h.narrative[0]}</p>
+            <dl className="mt-8 divide-y divide-ink/15 border-y border-ink/15">
+              {h.specs.map(([k, v]) => (
+                <div key={k} className="flex justify-between py-3">
+                  <dt className="eyebrow text-clay">{k}</dt>
+                  <dd className="font-serif text-lg">{v}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="eyebrow link-line mt-8 inline-block pb-1">View the residence →</p>
+          </div>
+        </Link>
       </div>
     </section>
   )
@@ -315,7 +314,7 @@ function FounderTeaser() {
     <section className="relative overflow-hidden py-28 md:py-44">
       <div className="container-x grid grid-cols-12 items-center gap-6">
         <div className="relative col-span-12 md:col-span-5">
-          <ParallaxImage src="/images/shana-portrait.webp" alt={studio.founder} className="aspect-[3/4]" reveal="up" />
+          <ParallaxImage src="/images/shana-portrait.webp" alt={studio.founder} className="aspect-[652/1062]" imgClassName="object-top" reveal="up" strength={0} zoom={false} />
           <span className="display absolute -right-6 -bottom-10 hidden text-[10rem] italic text-burgundy/90 md:block">S.</span>
         </div>
         <div className="col-span-12 md:col-span-6 md:col-start-7">

@@ -10,7 +10,7 @@ const images = [
   '/images/cake-co-moodboard.webp',
   '/images/mobility-hub-plan.webp',
   '/images/cake-co-table.webp',
-  '/images/sameer-residence.webp',
+  '/images/maqbool-residence.webp',
 ]
 const tones = ['bg-bone', 'bg-[#e9dfd3]', 'bg-sand', 'bg-ink text-bone', 'bg-burgundy text-bone']
 
